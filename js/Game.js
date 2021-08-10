@@ -8,7 +8,7 @@ class Game {
         /* track the number of missed guesses */
         this.missed = 0;
         /* array of five 'Phrase' objects */
-        this.phrase = this.storedPhrase();
+        this.phrases = this.storedPhrase();
         /* 'Phrase' currently in play */
         this.activePhrase = null;
         this.startScreenOverlay = document.getElementById('overlay');
@@ -25,13 +25,17 @@ class Game {
 
         return storedArray;
     };
+    /* randomly retrieve one phrase stores in 'phrases' array  */
+    getRandomPhrase() {
+        return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+    }
 
 
 
 
 
 
-    
+
 
 
 }
