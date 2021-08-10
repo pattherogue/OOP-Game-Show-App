@@ -30,7 +30,16 @@ class Game {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
     }
 
+    startGame() {
+        this.startScreenOverlay.style.display = 'none';
+        this.activePhrase = this.getRandomPhrase();
+        this.activePhrase.addPhraseToDisplay();
+    }
 
+    checkForWin() {
+        const lettersNotGuessed = document.getElementsByClassName('hide');
+        return lettersNotGuessed.length === 0;
+    }
 
 
 
