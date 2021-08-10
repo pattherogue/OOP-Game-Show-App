@@ -55,5 +55,6 @@ class Phrase {
                 letterItem[i].classList.add{'show'};
             }
         }
-    }
-}
+    };
+    
+};
