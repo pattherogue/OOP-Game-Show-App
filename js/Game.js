@@ -28,19 +28,27 @@ class Game {
     /* randomly retrieve one phrase stores in 'phrases' array  */
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
-    }
+    };
 
     startGame() {
         this.startScreenOverlay.style.display = 'none';
         this.activePhrase = this.getRandomPhrase();
         this.activePhrase.addPhraseToDisplay();
-    }
+    };
 
     checkForWin() {
         const lettersNotGuessed = document.getElementsByClassName('hide');
         return lettersNotGuessed.length === 0;
-    }
+    };
 
+    removeLife() {
+        let heartPoint = document.getElementsByTagName('img');
+        heartPoint[this.missed].src = 'images/lostHeart.png';
+        this.missed +=1;
+            if (this.missed >= 5) {
+                this.gameOver();
+            }
+    };
 
 
 
