@@ -29,24 +29,28 @@ class Game {
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
     };
-
+    /* hides the start screen overlay */
     startGame() {
         this.startScreenOverlay.style.display = 'none';
+        /* sets property with chosen phrase */
         this.activePhrase = this.getRandomPhrase();
+        /* adds that phrase to the board */
         this.activePhrase.addPhraseToDisplay();
     };
-
+    /* checks to see if player has revealed all letters in active phrase */
     checkForWin() {
         const lettersNotGuessed = document.getElementsByClassName('hide');
         return lettersNotGuessed.length === 0;
     };
-
+    /* method remove a life from scoreboard */
     removeLife() {
-        let heartPoint = document.getElementsByTagName('img');
-        heartPoint[this.missed].src = 'images/lostHeart.png';
-        this.missed +=1;
-            if (this.missed >= 5) {
-                this.gameOver();
+        /* replace image */
+        let tries = document.getElementsByTagName('img');
+        tries[this.missed].src = 'images/lostHeart.png';
+        /* increments 'missed' property */
+        this.missed ++;
+            if (this.missed === 5) {
+                this.gameOver(false);
             }
     };
 
