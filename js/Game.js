@@ -54,6 +54,33 @@ class Game {
             }
     };
 
+    gameOver(gameWon) {
+        let endOfGameMessage = document.querySelector('#game-over-message');
+        this.startScreenOverlay.style.display = 'inherit';
+        /* updates the overlay with friendly win or loss message */
+        if(gameWon) {
+            endOfGameMessage.innerHTML = 'Congrats! You are a winner :)';
+            this.startScreenOverlay.className = 'win';
+        } else {
+            endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
+            this.startScreenOverlay.className = 'lose';
+        };
+
+        handleInteraction(button) {
+            button.disabled = true;
+            if (this.activePhrase.checkLetter(button.textContent)) {
+                button.classList.add('chosen');
+                this.activePhrase.showMatchedLetter(button.textContent);
+                if (this.checkForWin()) {
+                    this.gameOver(true);
+                }
+            } else {
+                button.classList.add('wrong');
+                this.removeLife();
+            }
+        }
+    }
+
 
 
 
