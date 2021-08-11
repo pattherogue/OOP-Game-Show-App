@@ -53,7 +53,7 @@ class Game {
                 this.gameOver(false);
             }
     };
-
+    /* method displays original start screen depending on outcome of game */
     gameOver(gameWon) {
         let endOfGameMessage = document.querySelector('#game-over-message');
         this.startScreenOverlay.style.display = 'inherit';
@@ -61,29 +61,30 @@ class Game {
         if(gameWon) {
             endOfGameMessage.innerHTML = 'Congrats! You are a winner :)';
             this.startScreenOverlay.className = 'win';
-        } else {
-            endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
-            this.startScreenOverlay.className = 'lose';
+            } else {
+                endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
+                this.startScreenOverlay.className = 'lose';
         };
-
+        /* controls most of the game logic */
         handleInteraction(button) {
+            /* disable selected letter's onscreen button */
             button.disabled = true;
             if (this.activePhrase.checkLetter(button.textContent)) {
+                /* phrase includes guessed letter */
+                /* add 'chosen' CSS class */
                 button.classList.add('chosen');
                 this.activePhrase.showMatchedLetter(button.textContent);
                 if (this.checkForWin()) {
                     this.gameOver(true);
                 }
             } else {
+                /* phrase does NOT include guessed letter */
+                /* add 'wrong' CSS class */
                 button.classList.add('wrong');
                 this.removeLife();
             }
-        }
-    }
+        };
+    };
 
 
-
-
-
-
-}
+};
