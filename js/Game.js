@@ -11,7 +11,6 @@ class Game {
         this.phrases = this.storedPhrase();
         /* 'Phrase' currently in play */
         this.activePhrase = null;
-        this.startScreenOverlay = document.getElementById('overlay');
     }
 
     storedPhrase() {
@@ -32,7 +31,8 @@ class Game {
     }
     /* hides the start screen overlay */
     startGame() {
-        this.startScreenOverlay.style.display = 'none';
+        overlay.style.display = 'none';
+        overlay.className = 'start'
         /* sets property with chosen phrase */
         this.activePhrase = this.getRandomPhrase();
         /* adds that phrase to the board */
@@ -57,14 +57,14 @@ class Game {
     /* method displays original start screen depending on outcome of game */
     gameOver(gameWon) {
         let endOfGameMessage = document.querySelector('#game-over-message');
-        this.startScreenOverlay.style.display = 'inherit';
+        overlay.style.display = 'inherit';
         /* updates the overlay with friendly win or loss message */
         if(gameWon) {
             endOfGameMessage.innerHTML = 'Congrats! You are a winner :)';
-            this.startScreenOverlay.className = 'win';
+            overlay.className = 'win';
             } else {
                 endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
-                this.startScreenOverlay.className = 'lose';
+                overlay.className = 'lose';
         }
 
         this.resetGame();
@@ -90,17 +90,20 @@ class Game {
     }
 
     resetGame() {
-        const phraseUl = document.querySelector('#phrase ul');
-        phraseUl.innerHTML = '';
+        const phraseUl = document.getElementById('phrase').firstElementChild;
+        phraseUl.innerHTML = ``;
 
         const keys = document.querySelectorAll('.key');
         keys.forEach(button => button.className = 'key');
         keys.forEach(button => button.disabled = false);
-
+    
         let lives = document.querySelectorAll('img');
         lives.forEach(life => life.src = 'images/liveHeart.png');
 
         this.missed = 0;
     }
+
+    
+    
 
 }
