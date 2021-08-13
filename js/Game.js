@@ -27,7 +27,8 @@ class Game {
     }
     /* randomly retrieve one phrase stores in 'phrases' array  */
     getRandomPhrase() {
-        return this.phrases[Math.floor(Math.random() * this.phrases.length)];
+        const randomPhraseSelected = Math.floor(Math.random() * this.phrases.length);
+        return this.phrases[randomPhraseSelected]
     }
     /* hides the start screen overlay */
     startGame() {
