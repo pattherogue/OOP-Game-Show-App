@@ -89,7 +89,7 @@ class Game {
     }
 
     resetGame() {
-        const phraseUl = doucment.querySelector('#phrase ul');
+        const phraseUl = document.querySelector('#phrase ul');
         phraseUl.innerHTML = '';
 
         const keys = document.querySelectorAll('.key');
