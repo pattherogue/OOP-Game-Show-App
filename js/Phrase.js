@@ -35,6 +35,7 @@ class Phrase {
 /* checkLetter */
 /* check to see if the letter selected matches letter in phrase */
     checkLetter(letter) {
+        console.log(letter)
         return this.phrase.includes(letter);
     }
 
@@ -43,18 +44,15 @@ class Phrase {
 
 /* showMatchedLetter () */
 /* reveals letter(s) on the board that matches player selection */
-    showMatchedLetter(letter) {
-        const  ulItem = document.querySelector('ul');
-        const letterItem = ulItem.children;
-        /* select letter DOM elements w/ CSS class name that matches selected letter */
-        for (let i = 0; i < letterItem.length; i++) {
-            if ( letter === letterItem[i].textContent) {
-                /* replace 'hide' element */
-                letterItem[i].classList.remove('hide');
-                /* add 'show' class */
-                letterItem[i].classList.add('show');
-            }
+  
+    showMatchedLetter(letter){
+        let letterItem = document.getElementsByClassName(letter)
+         /* select letter DOM elements w/ CSS class name that matches selected letter */
+        for(let i = 0 ; i <rightLetter.length; i++){
+            /* replace 'hide' element */
+            /* add 'show' class */
+            letterItem[i].classList.replace('hide', 'show')
         }
     }
-    
+
 }
