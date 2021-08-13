@@ -91,12 +91,15 @@ class Game {
 
     resetGame() {
         const phraseUl = document.getElementById('phrase').firstElementChild;
+        /* remove all "li" elements from the Phrase "ul" element */
         phraseUl.innerHTML = ``;
         
+        /* enable all of the onescreen keyboard buttons to update */
         const keys = document.querySelectorAll('.key');
         keys.forEach(button => button.className = 'key');
         keys.forEach(button => button.disabled = false);
         
+        /* reset all heart images */
         let lives = document.querySelectorAll('img');
         lives.forEach(life => life.src = 'images/liveHeart.png');
         
