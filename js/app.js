@@ -2,7 +2,6 @@
  * Project 4 - OOP Game App
  * app.js */
 
-let game = '';
 const startButton = document.getElementById('btn__reset');
 /* click event listener "Start Game" */
 startButton.addEventListener('click', () => {
@@ -10,6 +9,7 @@ startButton.addEventListener('click', () => {
     game = new Game;
     /* calls startGame() method */
     game.startGame();
+    console.log("game", game)
 });
 
 /* click event listener to onscreen keyboard buttons */
@@ -17,8 +17,10 @@ const qwerty = document.getElementById('qwerty');
 qwerty.addEventListener('click', (e) => {
     /* clicking button calls handleInteraction() method */
     if (e.target.tagName === 'BUTTON') {
-        /* no clicking on space between and around onscreen keyboard buttons */ 
-        game.handleInteraction(e.target);
+        if (overlay.style.display == 'none') {
+            /* no clicking on space between and around onscreen keyboard buttons */ 
+            game.handleInteraction(e.target);
+        }
     }
 });
 
