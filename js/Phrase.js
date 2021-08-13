@@ -29,14 +29,14 @@ class Phrase {
                 /* letter CSS for letters */
                 characterElement.className = `hide letter ${letterPlaceHolder}`;
             }
-        };
-    };
+        }
+    }
 
 /* checkLetter */
 /* check to see if the letter selected matches letter in phrase */
     checkLetter(letter) {
-        return.this.phrase.includes(letter);
-    };
+        return this.phrase.includes(letter);
+    }
 
 
 
@@ -52,9 +52,9 @@ class Phrase {
                 /* replace 'hide' element */
                 letterItem[i].classList.remove('hide');
                 /* add 'show' class */
-                letterItem[i].classList.add{'show'};
+                letterItem[i].classList.add('show');
             }
         }
-    };
+    }
     
-};
+}
