@@ -22,7 +22,7 @@ class Phrase {
             const characterElement = document.createElement('li');
             phraseUl.appendChild(characterElement);
             characterElement.textContent = `${letterPlaceHolder}`;
-            if (letterPlaceHolder === '') {
+            if (letterPlaceHolder === ' ') {
                 /* space CSS for spaces */
                 characterElement.className = 'space';
             } else {

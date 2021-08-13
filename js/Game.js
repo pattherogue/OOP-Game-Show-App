@@ -65,6 +65,8 @@ class Game {
                 endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
                 this.startScreenOverlay.className = 'lose';
         }
+
+        this.resetGame();
     }
         /* controls most of the game logic */
     handleInteraction(button) {
@@ -84,6 +86,20 @@ class Game {
             button.classList.add('wrong');
             this.removeLife();
         }
+    }
+
+    resetGame() {
+        const phraseUl = doucment.querySelector('#phrase ul');
+        phraseUl.innerHTML = '';
+
+        const keys = document.querySelectorAll('.key');
+        keys.forEach(button => button.className = 'key');
+        keys.forEach(button => button.disabled = false);
+
+        let lives = document.querySelectorAll('img');
+        lives.forEach(life => life.src = 'images/liveHeart.png');
+
+        this.missed = 0;
     }
 
 }
