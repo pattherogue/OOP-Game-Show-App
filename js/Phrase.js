@@ -20,8 +20,8 @@ class Phrase {
             const letterPlaceHolder = phraseDisplay[i];
             const phraseUl = document.querySelector('#phrase ul');
             const characterElement = document.createElement('li');
-            phraseUl.appendChild(letterPlaceHolder);
-            characterElement.textContent = `${phraseUl}`;
+            phraseUl.appendChild(characterElement);
+            characterElement.textContent = `${letterPlaceHolder}`;
             if (letterPlaceHolder === '') {
                 /* space CSS for spaces */
                 characterElement.className = 'space';

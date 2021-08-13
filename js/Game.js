@@ -16,11 +16,11 @@ class Game {
 
     storedPhrase() {
         let storedArray = [
-            newPhrase('Buy low sell high'),
-            newPhrase('I am waiting for the pullback'),
-            newPhrase('The trend is your friend'),
-            newPhrase('When the tide goes out you see who is swimming naked'),
-            newPhrase('Investing should be more like watching paint dry or watching grass grow'),
+            new Phrase('Buy low sell high'),
+            new Phrase('I am waiting for the pullback'),
+            new Phrase('The trend is your friend'),
+            new Phrase('When the tide goes out you see who is swimming naked'),
+            new Phrase('Investing should be more like watching paint dry or watching grass grow'),
         ];
 
         return storedArray;
