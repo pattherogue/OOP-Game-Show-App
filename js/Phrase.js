@@ -45,13 +45,13 @@ class Phrase {
 /* showMatchedLetter () */
 /* reveals letter(s) on the board that matches player selection */
   
-    showMatchedLetter(letter){
-        let letterItem = document.getElementsByClassName(letter)
+    showMatchedLetter(letter) {
+        let letterItem = document.getElementsByClassName(letter);
          /* select letter DOM elements w/ CSS class name that matches selected letter */
-        for(let i = 0 ; i <rightLetter.length; i++){
+        for (let i = 0 ; i < letterItem.length; i++) {
             /* replace 'hide' element */
             /* add 'show' class */
-            letterItem[i].classList.replace('hide', 'show')
+            letterItem[i].classList.replace('hide', 'show');
         }
     }
 

@@ -15,7 +15,7 @@ class Game {
     }
 
     storedPhrase() {
-        let storedArray = [
+        let phraseList = [
             new Phrase('Buy low sell high'),
             new Phrase('I am waiting for the pullback'),
             new Phrase('The trend is your friend'),
@@ -23,7 +23,7 @@ class Game {
             new Phrase('Investing should be more like watching paint dry or watching grass grow'),
         ];
 
-        return storedArray;
+        return phraseList;
     }
     /* randomly retrieve one phrase stores in 'phrases' array  */
     getRandomPhrase() {
