@@ -12,23 +12,23 @@ class Game {
         /* 'Phrase' currently in play */
         this.activePhrase = null;
         this.startScreenOverlay = document.getElementById('overlay');
-    };
+    }
 
     storedPhrase() {
         let storedArray = [
-            newPhrase('Buy low sell high');
-            newPhrase('I am waiting for the pullback');
-            newPhrase('The trend is your friend');
-            newPhrase('When the tide goes out you see who is swimming naked');
-            newPhrase('Investing should be more like watching paint dry or watching grass grow');
-        ]
+            newPhrase('Buy low sell high'),
+            newPhrase('I am waiting for the pullback'),
+            newPhrase('The trend is your friend'),
+            newPhrase('When the tide goes out you see who is swimming naked'),
+            newPhrase('Investing should be more like watching paint dry or watching grass grow'),
+        ];
 
         return storedArray;
-    };
+    }
     /* randomly retrieve one phrase stores in 'phrases' array  */
     getRandomPhrase() {
         return this.phrases[Math.floor(Math.random() * this.phrases.length)];
-    };
+    }
     /* hides the start screen overlay */
     startGame() {
         this.startScreenOverlay.style.display = 'none';
@@ -36,12 +36,12 @@ class Game {
         this.activePhrase = this.getRandomPhrase();
         /* adds that phrase to the board */
         this.activePhrase.addPhraseToDisplay();
-    };
+    }
     /* checks to see if player has revealed all letters in active phrase */
     checkForWin() {
         const lettersNotGuessed = document.getElementsByClassName('hide');
         return lettersNotGuessed.length === 0;
-    };
+    }
     /* method remove a life from scoreboard */
     removeLife() {
         /* replace image */
@@ -52,7 +52,7 @@ class Game {
             if (this.missed === 5) {
                 this.gameOver(false);
             }
-    };
+    }
     /* method displays original start screen depending on outcome of game */
     gameOver(gameWon) {
         let endOfGameMessage = document.querySelector('#game-over-message');
@@ -64,27 +64,26 @@ class Game {
             } else {
                 endOfGameMessage.innerHTML = 'Game Over. Try Again :(';
                 this.startScreenOverlay.className = 'lose';
-        };
+        }
+    }
         /* controls most of the game logic */
-        handleInteraction(button) {
-            /* disable selected letter's onscreen button */
-            button.disabled = true;
-            if (this.activePhrase.checkLetter(button.textContent)) {
-                /* phrase includes guessed letter */
-                /* add 'chosen' CSS class */
-                button.classList.add('chosen');
-                this.activePhrase.showMatchedLetter(button.textContent);
-                if (this.checkForWin()) {
+    handleInteraction(button) {
+        /* disable selected letter's onscreen button */
+        button.disabled = true;
+        if (this.activePhrase.checkLetter(button.textContent)) {
+            /* phrase includes guessed letter */
+            /* add 'chosen' CSS class */
+            button.classList.add('chosen');
+            this.activePhrase.showMatchedLetter(button.textContent);
+            if (this.checkForWin()) {
                     this.gameOver(true);
-                }
-            } else {
-                /* phrase does NOT include guessed letter */
-                /* add 'wrong' CSS class */
-                button.classList.add('wrong');
-                this.removeLife();
             }
-        };
-    };
+        } else {
+            /* phrase does NOT include guessed letter */
+            /* add 'wrong' CSS class */
+            button.classList.add('wrong');
+            this.removeLife();
+        }
+    }
 
-
-};
+}
