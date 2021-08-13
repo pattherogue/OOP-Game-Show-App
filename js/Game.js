@@ -27,12 +27,12 @@ class Game {
     /* randomly retrieve one phrase stores in 'phrases' array  */
     getRandomPhrase() {
         const randomPhraseSelected = Math.floor(Math.random() * this.phrases.length);
-        return this.phrases[randomPhraseSelected]
+        return this.phrases[randomPhraseSelected];
     }
     /* hides the start screen overlay */
     startGame() {
         overlay.style.display = 'none';
-        overlay.className = 'start'
+        overlay.className = 'start';
         /* sets property with chosen phrase */
         this.activePhrase = this.getRandomPhrase();
         /* adds that phrase to the board */
@@ -92,18 +92,17 @@ class Game {
     resetGame() {
         const phraseUl = document.getElementById('phrase').firstElementChild;
         phraseUl.innerHTML = ``;
-
+        
         const keys = document.querySelectorAll('.key');
         keys.forEach(button => button.className = 'key');
         keys.forEach(button => button.disabled = false);
-    
+        
         let lives = document.querySelectorAll('img');
         lives.forEach(life => life.src = 'images/liveHeart.png');
-
+        
         this.missed = 0;
     }
 
-    
-    
-
 }
+
+
